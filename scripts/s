@@ -1,0 +1,1 @@
+oj s -l 4003 -y --no-open https://atcoder.jp/contests/abc283/tasks/abc283_$1 ../main.cpp

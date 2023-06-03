@@ -1,0 +1,1 @@
+g++ ../main.cpp -DONLINE_JUDGE -o ../a.out && oj t -c ../a.out -d ../test/ -N

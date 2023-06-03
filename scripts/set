@@ -1,0 +1,1 @@
+sed -i '' "s/abc[0-9]*/abc$1/g" down s

@@ -1,0 +1,1 @@
+rm -rf ../test/ && oj d https://atcoder.jp/contests/abc283/tasks/abc283_$1 -d ../test/
