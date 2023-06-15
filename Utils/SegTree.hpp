@@ -23,6 +23,8 @@ struct SegTree {
 
     T_Node get(int i) { return tree[i + base]; }
 
+    T_Node top() { return tree[1]; }
+
     void set(int i, T_Node v) { tree[i + base] = v; }
 
     void upd(int i, T_Node v) {
