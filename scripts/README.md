@@ -2,7 +2,7 @@
 
 [Atcoder](https://atcoder.jp/) 및 여타 online judge를 command line으로 제출하기 위해 만들어진 [online-judge-tools/oj](https://github.com/online-judge-tools/oj)를 좀더 원활하게 사용하기 위한 스크립트 파일들입니다.
 
-oj에 대한 사용법은 [공식 docs](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.md)를 참고하시거나, [여기](https://blog.naver.com/raararaara/223106235174)확인해주세요.
+oj에 대한 사용법은 [공식 docs](https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.md)를 참고하시거나, [여기](https://blog.naver.com/raararaara/223106235174)를 확인해주세요.
 
 ## 사용법
 
