@@ -8,7 +8,7 @@ oj에 대한 사용법은 [공식 docs](https://github.com/online-judge-tools/oj
 
 Atcoder Beginner Contest를 기준으로 사용할 수 있습니다.
 
-현재 스크립트는 디렉토리 구조를 기준으로 작성되었습니다.
+현재 스크립트는 아래와 같은 디렉토리 구조를 기준으로 작성되었습니다.
 
 ```
 .
@@ -35,7 +35,7 @@ Atcoder Beginner Contest를 기준으로 사용할 수 있습니다.
 ```
 
 ```bash
-> sh set ROUND
+> sh set ROUND_NO
 > sh down TASK_NO
 > sh t
 > sh s TASK_NO
@@ -170,3 +170,45 @@ Atcoder Beginner Contest를 기준으로 사용할 수 있습니다.
   [SUCCESS] result: https://atcoder.jp/contests/abc303/submissions/41928705
   [INFO] save cookie to: /Users/user/Library/Application Support/online-judge-tools/cookie.jar
   ```
+  
+## .zshrc
+
+스크립트 파일을 좀더 편리하게 사용할 수 있도록 command를 구성했습니다.
+
+본인의 shell profile에 copy&paste하여 사용하실 수 있습니다.
+
+```shell
+> ac chk
+> ac set ROUND_NO
+> ac s [TASK_NO]
+> ac t
+> ac nxt
+> ac down [TASK_NO]
+```
+
+* `ac chk`
+
+  환경변수 `TASK_NO`와 스크립트 파일 `down`, `s`의 내용을 출력합니다.
+  
+* `ac set ROUND_NO`
+  
+  1) 현재 위치를 `..../some_path/scripts`로 이동
+  2) 스크립트 파일 `down`과 `s`의 Url을 지정한 라운드에 맞게 수정
+  3) 환경변수 `TASK_NO`값을 'a'로 초기화
+  4) 설정한 round의 첫번째 문제의 test case 다운로드
+
+* `ac s [TASK_NO]`
+
+  문제번호를 파라미터로 넘겨줄 시 스크립트 파일 `s`을 실행하는 것과 동일하며, 파라미터가 없을 경우 환경변수 `TASK_NO`의 현재값에 대응하는 문제번호에 제출을 시도합니다.
+
+* `ac t`
+
+  스크립트 파일 `t`를 실행하는 것과 동일합니다.
+
+* `ac nxt`
+
+  환경변수 `TASK_NO`에 저장되어 있는 문제번호를 다음 번호로 변경하고, 그에 해당하는 테스트케이스를 다운로드합니다.
+
+* `ac down [TASK_NO]`
+
+  문제번호를 파라미터로 넘겨줄 시 스크립트 파일 `down`을 실행하는 것과 동일하며, 파라미터가 없을 경우 환경변수 `TASK_NO`의 현재값에 대응하는 문제번호의 테스트케이스를 다운로드합니다.
