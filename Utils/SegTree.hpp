@@ -14,8 +14,6 @@ struct SegTree {
     const F f;
     const T_Node I;
 
-    SegTree() = default;
-
     SegTree(int n, F _f, const T_Node &I) : N(n), f(_f), I(I) {
         for (base = 1; base < N; base <<= 1);
         tree.resize(base * 2 + 1, I);
