@@ -11,24 +11,31 @@ template<typename T_Node, typename F>
 struct SegTree {
     int N{}, base{};
     vector<T_Node> tree;
-    const F f;
+    const F f{};
     const T_Node I;
 
-    SegTree(int n, F _f, const T_Node &I) : N(n), f(_f), I(I) {
+    SegTree(int n, const T_Node &I) : N(n), I(I) {
         for (base = 1; base < N; base <<= 1);
-        tree.resize(base * 2 + 1, I);
+        tree = vector<T_Node>(base<<1|1, I);
+    }
+
+    SegTree(vector<T_Node> &v, const T_Node &I) : N(int(size(v))), I(I) {
+        for (base = 1; base < N; base <<= 1);
+        tree = vector<T_Node>(base<<1|1, I);
+        copy(all(v), tree.begin() + base);
+        for(int i = base-1; ~i; --i) adjust(i);
     }
 
     T_Node get(int i) { return tree[i + base]; }
 
     T_Node top() { return tree[1]; }
 
-    void set(int i, T_Node v) { tree[i + base] = v; }
-
     void upd(int i, T_Node v) {
         tree[i += base] = v;
-        while (i >>= 1) tree[i] = f(tree[i << 1], tree[i << 1 | 1]);
+        while (i >>= 1) adjust(i);
     }
+
+    void adjust(int i) { tree[i] = f(tree[i << 1], tree[i << 1 | 1]); }
 
     T_Node qry(int l, int r) {
         T_Node retL = I, retR = I;
