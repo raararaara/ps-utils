@@ -14,7 +14,7 @@ struct SegTree {
     const F f{};
     const T_Node I;
 
-    SegTree(int n, const T_Node &I) : N(n), I(I) {
+    SegTree(int n, F _f, const T_Node &I) : N(n), f(_f), I(I) {
         for (base = 1; base < N; base <<= 1);
         tree = vector<T_Node>(base<<1|1, I);
     }
