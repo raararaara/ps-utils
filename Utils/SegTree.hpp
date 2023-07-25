@@ -19,7 +19,7 @@ struct SegTree {
         tree = vector<T_Node>(base<<1|1, I);
     }
 
-    SegTree(vector<T_Node> &v, const T_Node &I) : N(int(size(v))), I(I) {
+    SegTree(vector<T_Node> &v, F _f, const T_Node &I) : N(int(size(v))), f(_f), I(I) {
         for (base = 1; base < N; base <<= 1);
         tree = vector<T_Node>(base<<1|1, I);
         copy(all(v), tree.begin() + base);
