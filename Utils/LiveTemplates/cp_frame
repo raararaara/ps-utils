@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+//#include <atcoder/all>
+//using mint = atcoder::modint998244353;
+using namespace std;
+using namespace __gnu_pbds;
+
+using lint = long long;
+using ii = pair<int, int>;
+using il = pair<int, lint>;
+using li = pair<lint, int>;
+using ll = pair<lint, lint>;
+
+const int mxn = 1000100, mxp = 1000001;
+const int MOD = 998244353, inf = -1e9 - 7, INF = 1e9 + 1;
+const lint lnf = -4e18, LNF = 5e18;
+const double eps = 1e-10;
+const int sqrtN = 200;
+
+#define sz(x) int(size(x))
+#define all(x) (x).begin(),(x).end()
+#define compress(x) sort(all(x)), (x).erase(unique(all(x)), (x).end())
+#define lb(x, v) (lower_bound(all(x), v) - (x).begin())
+#define ub(x, v) (upper_bound(all(x), v) - (x).begin())
+#define getName(var)  #var
+vector<lint> xl, yl;
+
+#define Yes "Yes\n"
+#define No "No\n"
+
+const int dr[] = {-1, 0, 1, 0};
+const int dc[] = {0, -1, 0, 1};
+
+inline int inRange(int r, int c, int R, int C) {
+    return 0 <= r && r < R && 0 <= c && c < C;
+}
+
+lint N, M, Q, R, C, H, K, T;
+
+void init() {
+
+}
+
+
+void solve() {
+    $END$
+}
+
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+#endif
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int TC = 1;
+//    cin >> TC;
+    while (TC--) {
+        init();
+        solve();
+    }
+
+    return 0;
+}

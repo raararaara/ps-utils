@@ -1,0 +1,6 @@
+while(M--) {
+    int u, v; cin >> u >> v;
+    adj[u].emplace_back(v);
+    adj[v].emplace_back(u);
+}
+$END$
