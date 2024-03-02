@@ -7,14 +7,14 @@ array<long long, msz> mod= {1000000009, 1000000007};
 
 template<int p>
 struct Hashing {
-    int N;
+    int n;
+    string s;
     vector<vector<long long>> pw, h;
-    Hashing() = default;
-    Hashing(const string &str): N(int(size(str))) {
-        h = pw = vector<vector<long long>>(N, vector<long long>(msz));
+    Hashing(const string &str): n(int(size(str))), s(str) {
+        h = pw = vector<vector<long long>>(n, vector<long long>(msz));
 
         for(int j = 0; j < msz; j++) pw[0][j] = 1LL, h[0][j] = str[0];
-        for(int i = 1; i < N; i++) {
+        for(int i = 1; i < n; i++) {
             for (int j = 0; j < msz; j++) {
                 h[i][j] = (h[i-1][j] * p + str[i]) % mod[j];
                 pw[i][j] = (pw[i-1][j] * p) % mod[j];
@@ -33,4 +33,18 @@ struct Hashing {
         }
         return ret;
     }
+
+    bool equals(Hashing<p> &other) {
+        return n == other.n && (get(0, n-1) == other.get(0, n-1));
+    }
+
+    bool contains(Hashing<p> &other) {
+        int m = other.n;
+        if(n < m) return false;
+        for(int i = 0; i + m - 1 < n; i++) {
+            if(get(i, i+m-1) == other.get(0, m-1)) return true;
+        }
+        return false;
+    }
 };
+
