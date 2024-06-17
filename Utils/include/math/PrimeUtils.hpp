@@ -4,13 +4,9 @@ using namespace std;
 using lint = long long;
 
 template<typename K, typename V, int SZ>
-struct PrimeUtils {
-    const lint LNF = 1e16;
+class PrimeUtils {
+    const lint LNF = 1e6;
     vector<int> spf, pList;
-    PrimeUtils() {
-        spf = vector<int>(SZ);
-        sieve();
-    }
 
     void sieve() {
         for (int i = 2; i < SZ; i++) {
@@ -24,11 +20,6 @@ struct PrimeUtils {
             }
         }
     }
-
-    bool IsPrime(K n) {
-        if(n < SZ) return spf[n] == n;
-        else if(n < LNF) return isPrimeSqrtN(n);
-    }
     bool isPrimeSqrtN(K n) {
         if (n == 2 || n == 3) return true;
         if (n <= 1 || n % 2 == 0 || n % 3 == 0) return false;
@@ -39,10 +30,6 @@ struct PrimeUtils {
         return true;
     }
 
-    vector<pair<K,V>> Factorize(K x) {
-        if(x < SZ) return factorizeSmall(x);
-        else if(x < LNF) factorizeSqrtN(x);
-    }
     vector<pair<K,V>> factorizeSmall(K n) {
         vector<pair<K,V>> ret;
         while(n != 1) {
@@ -70,6 +57,29 @@ struct PrimeUtils {
             if(cnt) ret.push_back({i, cnt});
         }
         if(n > 1) ret.push_back({n, 1});
+        return ret;
+    }
+
+public:
+    PrimeUtils() {
+        spf = vector<int>(SZ);
+        sieve();
+    }
+    bool IsPrime(K n) {
+        if(n < SZ) return spf[n] == n;
+        else if(n < LNF) return isPrimeSqrtN(n);
+    }
+    vector<pair<K,V>> Factorize(K x) {
+        if(x < SZ) return factorizeSmall(x);
+        else if(x < LNF) return factorizeSqrtN(x);
+    }
+    vector<K> Divisors(K x) {
+        vector<K> ret;
+        for(K i = 1; i*i <= x; i++) {
+            if(x % i) continue;
+            ret.emplace_back(i);
+            if(i != x/i) ret.emplace_back(x/i);
+        }
         return ret;
     }
 };
